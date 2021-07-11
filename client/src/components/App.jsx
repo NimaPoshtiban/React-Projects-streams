@@ -9,6 +9,8 @@ import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 import NotFound from './errors/NotFound';
 
+import "../Styles.css"
+
 const App = () => {
   return (
     <div className="ui container">

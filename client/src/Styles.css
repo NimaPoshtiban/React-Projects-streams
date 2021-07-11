@@ -1,0 +1,5 @@
+/* Don't modify the semantic ui classes */
+.ui-font{
+  font-family: 'Great Vibes', cursive;
+  font-weight: bolder;
+}
