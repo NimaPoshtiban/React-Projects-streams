@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
+import history from '../history';
 import Header from './Header';
 import StreamList from './streams/StreamList';
 import StreamCreate from './streams/StreamCreate';
@@ -9,12 +10,12 @@ import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 import NotFound from './errors/NotFound';
 
-import "../Styles.css"
+import '../Styles.css';
 
 const App = () => {
   return (
-    <div className="ui container">
-      <Router>
+    <div className="container ui">
+      <Router history={history}>
         <Header />
         <React.Fragment>
           <Switch>
