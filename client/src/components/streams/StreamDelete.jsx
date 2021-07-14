@@ -1,13 +1,21 @@
-import { Fragment } from 'react';
+import { useEffect, Fragment } from 'react';
+import { connect } from 'react-redux';
 
+import { deleteStream, fetchStream } from '../../actions';
 import history from '../../history';
 import Modal from '../Modal';
 
-const StreamDelete = () => {
+const StreamDelete = (props) => {
+  useEffect(() => {
+    props.fetchStream(props.match.params.id);
+  }, []);
+
   const actions = (
     <Fragment>
-      <button className="ui button negative">Delete</button>
-      <button className="ui button">Cancel</button>
+      <button onClick={()=>props.deleteStream(props.match.params.id)} className="ui button negative">Delete</button>
+      <button onClick={() => history.push('/')} className="ui button">
+        Cancel
+      </button>
     </Fragment>
   );
 
@@ -15,7 +23,7 @@ const StreamDelete = () => {
     <div>
       StreamDelete
       <Modal
-        title="Delete Stream"
+        title={`Delete Stream: ${props.stream?.title}`}
         content="Are you sure you want to delete this stream?"
         actions={actions}
         onDismiss={() => history.push('/')}
@@ -24,4 +32,10 @@ const StreamDelete = () => {
   );
 };
 
-export default StreamDelete;
+const mapStateToProps = (state, ownProps) => {
+  return { stream: state.streams[ownProps.match.params.id] };
+};
+
+export default connect(mapStateToProps, { fetchStream, deleteStream })(
+  StreamDelete
+);
