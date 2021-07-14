@@ -1,0 +1,14 @@
+{
+  "name": "rtmpserver",
+  "version": "1.0.0",
+  "description": "RTMP server for Streamy app",
+  "main": "index.js",
+  "author": "Nima Poshtiban",
+  "license": "MIT",
+  "dependencies": {
+    "node-media-server": "^2.3.8"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
