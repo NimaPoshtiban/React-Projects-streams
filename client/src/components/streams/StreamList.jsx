@@ -16,7 +16,10 @@ const StreamList = (props) => {
           <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
             <i className="icon edit" /> Edit
           </Link>
-          <Link className="ui button negative">
+          <Link
+            to={`/streams/delete/${stream.id}`}
+            className="ui button negative"
+          >
             <i className="trash alternate icon" />
             Delete
           </Link>
